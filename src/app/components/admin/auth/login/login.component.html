@@ -1,27 +1,18 @@
-<!-- <div class="login-form-wrapper">
-    <h1>Create a Free Account</h1>
-    <h3>Use your social networks</h3>
-    <div class="social-container">
-        <a id="facebook-icon" class="btn btn-primary btn-lg btn-floating fa fa-facebook" href="#!" role="button">
-        </a>
-        <a id="twitter-icon" class="btn btn-primary btn-lg btn-floating fa fa-twitter" href="#!" role="button">
-        </a>
-        <a id="google-icon" class="btn btn-primary btn-lg btn-floating fa fa-google" href="#!" role="button">
-        </a>
-    </div>
-    <span>or use your details for registration</span>
+<div class="login-form-wrapper card">
+    <span id="title">Login</span>
+    <form class="login-form flex-container" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="flex-container">
+            <mat-form-field class="full-width" appearance="legacy">
+                <mat-label>Username</mat-label>
+                <input type="text" matInput formControlName="username">
+            </mat-form-field>
 
-    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <mat-form-field class="full-width" appearance="legacy">
-            <mat-label>Username</mat-label>
-            <input type="text" matInput formControlName="username">
-        </mat-form-field>
-
-        <mat-form-field class="full-width" appearance="legacy">
-            <mat-label>Password</mat-label>
-            <input matInput type="password" formControlName="password">
-        </mat-form-field>
-        <button>Sign Up</button>
+            <mat-form-field class="full-width" appearance="legacy">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password">
+            </mat-form-field>
+        </div>
+        <button id="sumbit-button" class="" mat-raised-button color="primary">Sign In</button>
     </form>
-</div> -->
-<h1>Login</h1>
+    <a id="register-redirect" [routerLink]="['/auth', 'register']">Or sign up here</a>
+</div>
