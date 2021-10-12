@@ -7,7 +7,6 @@ import { NgModule } from '@angular/core';
 import { RegisterComponent } from '../admin/auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthComponent } from '../admin/auth/auth.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -26,7 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         path: '', 
         component: AuthComponent,
         children: [
-          { path: 'login', component: RegisterComponent },
+          { path: 'login', component: LoginComponent },
           { path: 'register', component: RegisterComponent },
         ]
       },
