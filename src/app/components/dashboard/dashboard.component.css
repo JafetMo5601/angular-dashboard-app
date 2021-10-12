@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+    background-color: #373344;
+}
+
+.container-fluid {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.flex-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 10%;
+    width: 100%;
+}
+
+.flex-content {
+    position: absolute;
+    height: 90%;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
