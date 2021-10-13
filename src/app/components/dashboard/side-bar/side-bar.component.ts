@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideBarComponent implements OnInit {
 
+  placeholder = 'Search...'
+
   constructor() { }
 
   ngOnInit(): void {

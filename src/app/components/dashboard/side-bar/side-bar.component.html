@@ -1,12 +1,30 @@
 <mat-drawer mode="side" opened>
     <div id="search" class="full-width">
-        <mat-icon>search</mat-icon>
-        <mat-form-field appearance="legacy">
-            <input type="text" value="Search..." matInput>
-        </mat-form-field>
+        <div class="header full-width">
+            <mat-icon>search</mat-icon>
+            <mat-form-field class="half-width" appearance="legacy">
+                <mat-label></mat-label>
+                <input matInput type=" text" [value]="placeholder" (keyup)=" placeholder=''">
+            </mat-form-field>
+        </div>
     </div>
     <div id="recently-played" class="full-width">
+        <mat-accordion class="headers-align full-width">
+            <mat-expansion-panel class="full-width">
+                <mat-expansion-panel-header class="full-width header">
+                    <div class="header full-width">
+                        <h3>Recently played</h3>
+
+                    </div>
+                </mat-expansion-panel-header>
+
+                <div>My panel content!</div>
+            </mat-expansion-panel>
+        </mat-accordion>
     </div>
-    <div id="your-games" class="full-width">
+    <div id="your-games " class="full-width ">
+        <div class="header full-width ">
+
+        </div>
     </div>
 </mat-drawer>
