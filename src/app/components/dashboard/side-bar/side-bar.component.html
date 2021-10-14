@@ -9,8 +9,8 @@
         </div>
     </div>
     <div id="recently-played" class="full-width">
-        <mat-accordion class="headers-align full-width">
-            <mat-expansion-panel class="full-width">
+        <mat-accordion class="headers-align full-width full-height aqua">
+            <mat-expansion-panel class="full-width full-height">
                 <mat-expansion-panel-header class="full-width header">
                     <div class="header full-width">
                         <h3>Recently played</h3>
@@ -18,13 +18,34 @@
                     </div>
                 </mat-expansion-panel-header>
 
-                <div>My panel content!</div>
+                <div class="content">
+                    <mat-button-toggle-group name="fontStyle" id="button-group">
+                        <mat-button-toggle value="bold">Bold</mat-button-toggle>
+                        <mat-button-toggle value="italic">Italic</mat-button-toggle>
+                        <mat-button-toggle value="underline">Underline</mat-button-toggle>
+                    </mat-button-toggle-group>
+                </div>
             </mat-expansion-panel>
         </mat-accordion>
     </div>
-    <div id="your-games " class="full-width ">
-        <div class="header full-width ">
+    <div id="your-games" class="full-width ">
+        <mat-accordion class="headers-align full-width full-height aqua">
+            <mat-expansion-panel class="full-width full-height">
+                <mat-expansion-panel-header class="full-width header">
+                    <div class="header full-width">
+                        <h3>Your Games</h3>
 
-        </div>
+                    </div>
+                </mat-expansion-panel-header>
+
+                <div class="content">
+                    <mat-button-toggle-group name="fontStyle" id="button-group">
+                        <mat-button-toggle value="bold">Bold</mat-button-toggle>
+                        <mat-button-toggle value="italic">Italic</mat-button-toggle>
+                        <mat-button-toggle value="underline">Underline</mat-button-toggle>
+                    </mat-button-toggle-group>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
     </div>
 </mat-drawer>
