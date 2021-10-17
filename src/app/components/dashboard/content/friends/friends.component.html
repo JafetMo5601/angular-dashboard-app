@@ -1,4 +1,18 @@
-<div class="content">
-    <h2 class="title">Friends</h2>
-    <div id="friend-list"></div>
+<div class="flex-content">
+    <div class="content">
+        <h1 class="title">Friends</h1>
+        <div class="card friend-list">
+            <div class="card-body">
+                <div class="user-info-status mat-elevation-z4" matRipple [matRippleCentered]="false" [matRippleUnbounded]="false" *ngFor="let friend of friends">
+                    <div class="user-icon-container">
+                        <mat-icon id="user-icon">person</mat-icon>
+                    </div>
+                    <div class="user-info">
+                        <h2>{{ friend.nickName }}</h2>
+                        <h3>{{ friend.status }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
