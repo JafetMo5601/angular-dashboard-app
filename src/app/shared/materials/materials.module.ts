@@ -7,6 +7,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatRippleModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
@@ -30,6 +31,7 @@ import { NgModule } from '@angular/core';
     MatSidenavModule,
     MatToolbarModule,
     MatButtonModule,
+    MatRippleModule,
     MatInputModule,
     MatCardModule,
     MatIconModule,
