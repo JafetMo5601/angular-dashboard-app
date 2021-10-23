@@ -1,1 +1,15 @@
-<p>most-played works!</p>
+<div class="flex-content">
+    <div class="content">
+        <div class="header">
+            <h1 class="section-title">Most played</h1>
+            <div class="carousel-arrows">
+                <mat-icon class="arrow" (click)="prevImageClick()">keyboard_arrow_left</mat-icon>
+                <mat-icon class="arrow" (click)="nextImageClick()">keyboard_arrow_right</mat-icon>
+            </div>
+
+        </div>
+        <div>
+            <ng-image-slider [images]="imageObject" [showArrow]="false" [infinite]="true" [imagePopup]="false" #nav></ng-image-slider>
+        </div>
+    </div>
+</div>

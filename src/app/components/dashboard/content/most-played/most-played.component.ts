@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgImageSliderComponent } from 'ng-image-slider';
+import { imageObject } from './data';
 
 @Component({
   selector: 'app-most-played',
@@ -10,6 +12,18 @@ export class MostPlayedComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+  
+  imageObject = imageObject;
+
+  @ViewChild('nav') slider!: NgImageSliderComponent;
+  
+  prevImageClick() {
+      this.slider.prev();
+  }
+  
+  nextImageClick() {
+      this.slider.next();
   }
 
 }
