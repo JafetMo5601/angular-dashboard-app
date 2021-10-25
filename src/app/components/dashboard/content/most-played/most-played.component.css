@@ -30,3 +30,7 @@
 .arrow:hover {
     cursor: pointer;
 }
+
+::ng-deep .img-div.ng-star-inserted {
+    background-color: #c4c4c4 !important;
+}
