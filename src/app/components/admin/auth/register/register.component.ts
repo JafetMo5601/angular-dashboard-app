@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -35,8 +36,7 @@ export class RegisterComponent {
   errorMessage = '';
 
   constructor(
-    // private customPopUpService: CustomPopUpService,
-    // private authService: AuthorizationService
+    private authService: AuthService
   ) { }
 
   // public openCustomPopUp(message: string) {
@@ -47,30 +47,22 @@ export class RegisterComponent {
   // }
 
   onSubmit() {
-    console.log(
+    this.authService.register(
       this.signUpForm.controls['name'].value,
       this.signUpForm.controls['last'].value,
       this.signUpForm.controls['email'].value,
       this.signUpForm.controls['username'].value,
       this.signUpForm.controls['password'].value
+    ).subscribe(
+      data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+      }, err => {
+        this.errorMessage = err.error.message;
+        this.isSignUpFailed = true;
+        console.log(this.errorMessage);
+      }
     );
-    // this.authService.register(
-    //   this.signUpForm.controls['name'].value,
-    //   this.signUpForm.controls['last'].value,
-    //   this.signUpForm.controls['email'].value,
-    //   this.signUpForm.controls['username'].value,
-    //   this.signUpForm.controls['password'].value,
-    //   [1]
-    // ).subscribe(
-    //   data => {
-    //     this.isSuccessful = true;
-    //     this.isSignUpFailed = false;
-    //     this.openCustomPopUp(data.message);
-    //   },
-    //   err => {
-    //     this.errorMessage = err.error.message;
-    //     this.isSignUpFailed = true;
-    //   }
-    // );
   }
 }

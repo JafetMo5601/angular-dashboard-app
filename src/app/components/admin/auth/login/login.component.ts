@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as anime from 'animejs';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
 
 
 @Component({
@@ -21,39 +23,34 @@ export class LoginComponent {
     })
   });
 
-  constructor() {}
+  constructor(
+    private authService: AuthService,
+    private token: TokenStorageService
+  ) {}
 
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
 
   onSubmit() {
-    // this.authService.authenticate(
-    //   this.loginForm.controls['username'].value,
-    //   this.loginForm.controls['password'].value).subscribe(
-    //     data: any => {
-    //       let token: any = this.get_token(data);
-    //       let user_data: any = this.get_user_data(data);
-    //       // this.tokenStorage.saveToken(token);
-    //       // this.tokenStorage.saveUser(user_data);
-    //       this.isLoginFailed = false;
-    //       this.isLoggedIn = true;
-    //       this.router.navigate(['/calendar']);
-    //     },
-    //     err: any => {
-    //       this.errorMessage = err.error.message;
-    //       this.isLoginFailed = true;
-    //     }
-    //   );
+    this.authService.login(
+      this.loginForm.controls['username'].value,
+      this.loginForm.controls['password'].value).subscribe(
+        data => {
+          console.log(data)
+          this.token.saveToken(data.token);
+          this.isLoginFailed = false;
+          this.isLoggedIn = true;
+          this.reloadPage();
+        },
+        err => {
+          this.errorMessage = err.error.message;
+          this.isLoginFailed = true;
+        }
+      );
   }
 
-  get_token(data: any) {
-    return data.token;
-  }
-
-  get_user_data(data: any) {
-    delete data.token;
-    delete data.type;
-    return data;
+  reloadPage() {
+    window.location.reload();
   }
 }

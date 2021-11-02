@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TokenStorageService } from './shared/services/token-storage.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-dashboard-project';
+  isLoggedIn = false;
+
+  constructor(private token: TokenStorageService) { }
+
+  ngOnInit(): void {
+    this.isLoggedIn = !!this.token.getToken();
+  }
+
+  logout(): void {
+    this.token.signOut();
+    window.location.reload();
+  }
 }
