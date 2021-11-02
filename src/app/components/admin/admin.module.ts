@@ -7,6 +7,8 @@ import { NgModule } from '@angular/core';
 import { RegisterComponent } from '../admin/auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthComponent } from '../admin/auth/auth.component';
+import { authInterceptorProviders } from 'src/app/shared/services/auth.interceptor';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,6 +19,7 @@ import { AuthComponent } from '../admin/auth/auth.component';
   ],
   imports: [
     ReactiveFormsModule,
+    HttpClientModule,
     MaterialsModule,
     CommonModule,
     FormsModule,
@@ -30,6 +33,9 @@ import { AuthComponent } from '../admin/auth/auth.component';
         ]
       },
     ]),
-  ]
+  ],
+  providers: [
+    authInterceptorProviders
+  ],
 })
 export class AdminModule { }
