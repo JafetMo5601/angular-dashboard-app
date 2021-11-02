@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { single } from './data';
+import { Component } from '@angular/core';
+
+import { GamingDataService } from 'src/app/shared/services/gaming-data.service';
+
 
 @Component({
   selector: 'app-statistics',
@@ -7,16 +9,9 @@ import { single } from './data';
   styleUrls: ['./statistics.component.css']
 })
 export class StatisticsComponent {
-
-  saleData = [
-    { name: "Mobiles", value: 105000 },
-    { name: "Laptop", value: 55000 },
-    { name: "AC", value: 15000 },
-    { name: "Headset", value: 150000 },
-    { name: "Fridge", value: 20000 }
-  ];
-
+  mostPlayed = this.gamingData.gamesPerHour;
   
-
-  constructor() {}
+  constructor(
+    private gamingData: GamingDataService
+  ) { }
 }

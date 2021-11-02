@@ -1,38 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+import { GamingDataService } from 'src/app/shared/services/gaming-data.service';
+
 
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.css']
 })
-export class SideBarComponent implements OnInit {
+export class SideBarComponent {
+  recentlyPlayed = this.gamingData.recentlyPlayed;
+  yourGames = this.gamingData.yourGames;
+  placeholder: string = 'Search...'
 
-  placeholder = 'Search...'
-  recentlyPlayed = [
-    'League of Leyends',
-    'Hitman 3',
-    'GTA V',
-    'Far Cry 6',
-    'FIFA 22',
-    'Rocket League',
-    'Minecraft',
-  ]
-  yourGames = [
-    'League of Leyends',
-    'Hitman 3',
-    'GTA V',
-    'Far Cry 6',
-    'FIFA 22',
-    'Rocket League',
-    'Minecraft',
-    'Cyberpunk 2077',
-    'Left4Dead',
-    'Brawhalla'
-  ]
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  constructor(
+    private gamingData: GamingDataService
+  ) { }
 }

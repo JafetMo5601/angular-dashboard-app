@@ -3,6 +3,17 @@
     background-color: rgba(255, 255, 255, 0.12);
 }
 
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: white;
+}
+
+::ng-deep mat-form-field .mat-hint,
+ ::ng-deep mat-form-field input,
+ ::ng-deep mat-form-field ::placeholder,
+ ::ng-deep mat-form-field .mat-form-field-label {
+    color: white;
+}
+
 .full-width {
     width: 100%;
 }
@@ -11,8 +22,12 @@
     height: 100%;
 }
 
-.aqua {
-    background-color: aqua;
+.mat-form-field {
+    font-weight: 300;
+}
+
+.mat-input-element {
+    caret-color: #C4C4C4;
 }
 
 .header {
@@ -25,7 +40,7 @@
 
 .header h3 {
     width: 100%;
-    color: white;
+    color: #C4C4C4;
     background-color: transparent;
     margin: 0;
     font-size: 12pt;
@@ -52,8 +67,19 @@ mat-expansion-panel.mat-expansion-panel.mat-expanded.mat-expansion-panel-spacing
     background-color: transparent;
 }
 
+.mat-expansion-panel-content {
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    height: 85%;
+}
+
 mat-expansion-panel.mat-expansion-panel .content {
     width: 100%;
+}
+
+::ng-deep .mat-expansion-indicator::after {
+    color: #C4C4C4;
 }
 
 ::ng-deep .mat-expansion-panel-body {
@@ -62,6 +88,7 @@ mat-expansion-panel.mat-expansion-panel .content {
 
 #button-group {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -84,7 +111,7 @@ mat-expansion-panel.mat-expansion-panel .content {
 #search mat-icon {
     width: 10%;
     font-size: 16pt;
-    color: white;
+    color: #C4C4C4;
     margin: 0;
     background-color: transparent;
 }
@@ -92,7 +119,7 @@ mat-expansion-panel.mat-expansion-panel .content {
 #search mat-form-field {
     width: 80%;
     height: 100%;
-    color: white;
+    color: #C4C4C4;
     margin: 0;
     background-color: #373344;
 }
