@@ -14,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialsModule } from './shared/materials/materials.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { authInterceptorProviders } from './shared/services/auth.interceptor';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -30,12 +32,15 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserAnimationsModule,
+    HttpClientModule,
     AppRoutingModule,
     MaterialsModule,
     BrowserModule,
     CommonModule,
   ],
-  providers: [],
+  providers: [
+    authInterceptorProviders
+  ],
   bootstrap: [
     AppComponent
   ]

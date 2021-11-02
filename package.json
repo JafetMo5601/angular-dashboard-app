@@ -2,6 +2,7 @@
     "name": "angular-dashboard-project",
     "version": "0.0.0",
     "scripts": {
+        "start:dev": "ng serve -o --proxy-config ./proxies/dev-proxy.conf.json",
         "ng": "ng",
         "start": "ng serve -o",
         "build": "ng build",
