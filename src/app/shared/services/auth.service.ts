@@ -14,14 +14,13 @@ export class AuthService {
   constructor(private httpClient: HttpClient) {}
 
   login(username: string, password: string): Observable<any> {
-    console.log(environment.apiUrl);
     return this.httpClient.post('/api/user/signin.php', { 
       username, password 
     }, httpOptions);
   }
 
-  register(first: string , last: string, username: string, email: string, password: string): Observable<any> {
-    return this.httpClient.post(environment.apiUrl + 'user/register.php', { 
-      first, last, username, email, password}, httpOptions);
+  register(name: string , last: string, username: string, email: string, password: string): Observable<any> {
+    return this.httpClient.post('/api/user/register.php', { 
+      name, last, username, email, password}, httpOptions);
   }
 }

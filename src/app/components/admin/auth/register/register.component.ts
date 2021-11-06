@@ -1,5 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CustomPopUpService } from 'src/app/shared/custom-pop-up/custom-pop-up.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
@@ -36,32 +38,35 @@ export class RegisterComponent {
   errorMessage = '';
 
   constructor(
+    private customPopUpService: CustomPopUpService,
     private authService: AuthService
   ) { }
 
-  // public openCustomPopUp(message: string) {
-  //   this.customPopUpService.confirm(
-  //     'New user', 
-  //     message
-  //     );
-  // }
+  public openCustomPopUp(message: string) {
+    this.customPopUpService.confirm(
+      'New user', 
+      message,
+      'auth/login'
+      );
+  }
 
   onSubmit() {
     this.authService.register(
       this.signUpForm.controls['name'].value,
       this.signUpForm.controls['last'].value,
-      this.signUpForm.controls['email'].value,
       this.signUpForm.controls['username'].value,
+      this.signUpForm.controls['email'].value,
       this.signUpForm.controls['password'].value
     ).subscribe(
       data => {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
+        this.openCustomPopUp(data.message);
       }, err => {
+        console.log(err);
         this.errorMessage = err.error.message;
         this.isSignUpFailed = true;
-        console.log(this.errorMessage);
       }
     );
   }
