@@ -1,6 +1,5 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import * as anime from 'animejs';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
 
@@ -37,7 +36,6 @@ export class LoginComponent {
       this.loginForm.controls['username'].value,
       this.loginForm.controls['password'].value).subscribe(
         data => {
-          console.log(data)
           this.token.saveToken(data.token);
           this.isLoginFailed = false;
           this.isLoggedIn = true;
@@ -45,6 +43,7 @@ export class LoginComponent {
         },
         err => {
           this.errorMessage = err.error.message;
+          console.log(this.errorMessage);
           this.isLoginFailed = true;
         }
       );
