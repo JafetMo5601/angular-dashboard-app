@@ -136,3 +136,13 @@ mat-expansion-panel.mat-expansion-panel .content {
 #your-games {
     height: 40%;
 }
+
+::ng-deep .mat-expansion-panel-content {
+    height: 90% !important;
+    flex-direction: column;
+    overflow: scroll !important;
+}
+
+::ng-deep ::-webkit-scrollbar {
+    display: none !important;
+}

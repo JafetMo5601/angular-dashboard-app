@@ -16,6 +16,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { authInterceptorProviders } from './shared/services/auth.interceptor';
 import { HttpClientModule } from '@angular/common/http';
+import { CustomPopUpComponent } from './shared/custom-pop-up/custom-pop-up.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -29,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     ContentComponent,
     FriendsComponent,
     AppComponent,
+    CustomPopUpComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -37,6 +40,7 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialsModule,
     BrowserModule,
     CommonModule,
+    NgbModule,
   ],
   providers: [
     authInterceptorProviders
