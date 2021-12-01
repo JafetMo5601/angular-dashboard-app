@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
 
 @Component({
   selector: 'app-top-menu',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopMenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private token: TokenStorageService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
+  }
+
+  logout() {
+    this.token.signOut();
+    this.router.navigate(['auth/login']);
   }
 
 }

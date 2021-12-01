@@ -34,3 +34,10 @@
 .flex-context button mat-icon {
     background-color: transparent;
 }
+
+.profile-picture {
+    position: absolute;
+    background-color: transparent;
+    right: 0;
+    margin: 0 2%;
+}

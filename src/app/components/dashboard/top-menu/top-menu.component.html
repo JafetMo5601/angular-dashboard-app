@@ -3,11 +3,20 @@
         <button mat-icon-button aria-label="Go to main page">
             <mat-icon>home</mat-icon>
           </button>
-        <button mat-icon-button aria-label="Go to friends page" class="flex-content">
+        <button mat-icon-button aria-label="Go to friends page" class="flex-content" [routerLink]="['/not-found']">
             <mat-icon>people</mat-icon>
         </button>
-        <button mat-icon-button aria-label="Go to notifications">
+        <button mat-icon-button aria-label="Go to notifications" [routerLink]="['/not-found']">
           <mat-icon>notifications</mat-icon>
         </button>
+        <div class="profile-picture">
+            <button mat-icon-button aria-label="User profile" [matMenuTriggerFor]="beforeMenu">
+            <mat-icon>account_box</mat-icon>
+          </button>
+            <mat-menu #beforeMenu="matMenu" xPosition="before">
+                <button mat-menu-item [routerLink]="['/not-found']">Settings</button>
+                <button mat-menu-item (click)="logout()">Logout</button>
+            </mat-menu>
+        </div>
     </div>
 </mat-toolbar>
