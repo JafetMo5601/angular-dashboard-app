@@ -13,6 +13,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { MatMenuModule } from '@angular/material/menu';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -40,6 +41,7 @@ import { NgModule } from '@angular/core';
     MatCardModule,
     MatIconModule,
     MatListModule,
+    MatMenuModule,
   ]
 })
 export class MaterialsModule { }
