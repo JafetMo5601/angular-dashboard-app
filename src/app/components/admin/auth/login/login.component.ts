@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CustomPopUpService } from 'src/app/shared/custom-pop-up/custom-pop-up.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
 
@@ -24,8 +25,17 @@ export class LoginComponent {
 
   constructor(
     private authService: AuthService,
-    private token: TokenStorageService
+    private token: TokenStorageService,
+    private customPopUpService: CustomPopUpService
   ) {}
+
+  openCustomPopUp(message: string) {
+    this.customPopUpService.confirm(
+      'User login', 
+      message,
+      'auth/login'
+      );
+  }
 
   isLoggedIn = false;
   isLoginFailed = false;
@@ -43,7 +53,7 @@ export class LoginComponent {
         },
         err => {
           this.errorMessage = err.error.message;
-          console.log(this.errorMessage);
+          this.openCustomPopUp(this.errorMessage);
           this.isLoginFailed = true;
         }
       );
